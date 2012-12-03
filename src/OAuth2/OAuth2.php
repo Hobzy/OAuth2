@@ -163,6 +163,7 @@ class OAuth2
         if(is_array($this->options->vendorOptions->headers)) {
             $httpClient->setHeaders($this->options->vendorOptions->headers);
         }
+	$httpClient->setOptions(array('sslcapath' => '/etc/ssl/certs'));
         $content = $httpClient->send()->getContent();
         if($this->options->vendorOptions->responseFormat === 'urlencode') {
             try {
